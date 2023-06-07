@@ -3,6 +3,7 @@ from Artemiy_hw_21.store_class import Store
 from request_class import Request
 from utils import search_shop, search_store
 
+# Создаем склады и магазины
 store_1 = Store("store_1")
 shop_1 = Shop("Shop_1")
 store_2 = Store("store_2")
@@ -37,6 +38,15 @@ def add_data():
     shop_2.add("перец", 0)
 
 
+def check_shop_name(name):
+    if name == 1:
+        return shop_1
+    elif name == 2:
+        return shop_2
+    else:
+        return None
+
+
 def main():
     print(
         "\n\nДобро пожаловать в интернет-магазин 'Овощной Микс'! \n\nВыберите одно из наших отделений, чтобы сделать онлайн-покупку")
@@ -45,20 +55,16 @@ def main():
     print(f"\n{shop_2.name} В наличии есть следующие товары: {shop_2.get_items()} \n")
 
     print("Если хотите сделать покупку в магазине Shop_1, нажмите 1;\nв магазине Shop_2 - нажмите 2")
-    shop_el = int(input("\nНомер отделения: "))
-    while True:
-        if shop_el == 1:
-            shop = shop_1
-            break
-        elif shop_el == 2:
-            shop = shop_2
-            break
-        else:
-            print("Такого отделения не существует")
-            exit()
 
-    print(f"Добро пожаловать в {shop.name}!")
     while True:
+        shop_el = int(input("\nНомер отделения: "))
+
+        shop = check_shop_name(shop_el)
+        if shop == None:
+            print("Не угадали :D, такого отделения нет, введите заново")
+            continue
+
+        print(f"Добро пожаловать в {shop.name}!")
 
         user_input = input(
             "Нажмите Enter для составления заказа. Чтобы закончить или перейти в меню склада, введите 0\n")
