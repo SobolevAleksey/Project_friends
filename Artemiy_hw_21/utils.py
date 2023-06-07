@@ -1,13 +1,15 @@
-from classes import Storage, Request
+from classes import Storage
 
 
-def search_store(name):
+def search_store(storage_name):
+    """Функция для опеределения, что товар доставляется в магазин"""
     for store in Storage.stores_lst:
-        if name == store.name:
+        if storage_name == store.name:
             return store
 
 
-def search_shop(name):
+def search_shop(storage_name):
+    """Функция для опеределения, что товар доставляется в хранилище"""
     for shop in Storage.shops_lst:
-        if name == shop.name:
+        if storage_name == shop.name:
             return shop
