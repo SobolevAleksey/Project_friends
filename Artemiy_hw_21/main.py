@@ -3,8 +3,14 @@ from Artemiy_hw_21.store_class import Store
 from request_class import Request
 from utils import search_shop, search_store
 
-if __name__ == '__main__':
-    store_1 = Store("store_1")
+store_1 = Store("store_1")
+shop_1 = Shop("Shop_1")
+store_2 = Store("store_2")
+shop_2 = Shop("Shop_2")
+
+
+def add_data():
+    "Добавляем товары на склады"
     store_1.add("морковь", 20)
     store_1.add("лук", 20)
     store_1.add("перец", 20)
@@ -12,15 +18,12 @@ if __name__ == '__main__':
     store_1.add("арбуз", 20)
     store_1.add("картофель", 0)
 
-
-    shop_1 = Shop("Shop_1")
     shop_1.add("морковь", 0)
     shop_1.add("картофель", 0)
     shop_1.add("лук", 4)
     shop_1.add("перец", 4)
     shop_1.add("арбуз", 4)
 
-    store_2 = Store("store_2")
     store_2.add("морковь", 20)
     store_2.add("лук", 20)
     store_2.add("перец", 0)
@@ -28,14 +31,16 @@ if __name__ == '__main__':
     store_2.add("арбуз", 20)
     store_2.add("манго", 20)
 
-
-    shop_2 = Shop("Shop_2")
     shop_2.add("морковь", 4)
     shop_2.add("картофель", 4)
     shop_2.add("лук", 4)
     shop_2.add("перец", 0)
 
-    print("\n\nДобро пожаловать в интернет-магазин 'Овощной Микс'! \n\nВыберите одно из наших отделений, чтобы сделать онлайн-покупку")
+
+if __name__ == '__main__':
+    add_data()
+    print(
+        "\n\nДобро пожаловать в интернет-магазин 'Овощной Микс'! \n\nВыберите одно из наших отделений, чтобы сделать онлайн-покупку")
 
     print(f"\n{shop_1.name} В наличии есть следующие товары: {shop_1.get_items()}")
     print(f"\n{shop_2.name} В наличии есть следующие товары: {shop_2.get_items()} \n")
@@ -56,7 +61,8 @@ if __name__ == '__main__':
     print(f"Добро пожаловать в {shop.name}!")
     while True:
 
-        user_input = input("Нажмите Enter для составления заказа. Чтобы закончить или перейти в меню склада, введите 0\n")
+        user_input = input(
+            "Нажмите Enter для составления заказа. Чтобы закончить или перейти в меню склада, введите 0\n")
 
         if user_input == "0":
             break
@@ -72,8 +78,6 @@ if __name__ == '__main__':
         else:
             print(f"\nКурьер забрал из магазина {sh_goods_quantity} {sh_goods_title} и направляется по вашему адресу")
 
-
-
         print("\nАктуальный каталог магазина", shop.get_items())
 
     print(f"СКЛАД: заполните форму и наш курьер доставит товар в один из магазинов")
@@ -84,7 +88,8 @@ if __name__ == '__main__':
             break
         print(f"\nДоступные склады: {shop.stores_names}\nДоступные магазины: {shop.shops_names}\n")
         print("Заполните следующую форму, заменив слова в  скобках на данные без скобок")
-        print("Доставить (количество цифрой) (товар в им. падеже) со_склада (название склада) в_магазин (название магазина)")
+        print(
+            "Доставить (количество цифрой) (товар в им. падеже) со_склада (название склада) в_магазин (название магазина)")
 
         sentence = input("Напишите заказ:\n")
 
@@ -104,11 +109,9 @@ if __name__ == '__main__':
         if shop.add(req.product, req.amount) == False:
             continue
 
-
         print(f"Курьер забрал {req.amount} {req.product} со склада {req.fr}")
         print(f"Курьер везет {req.amount} {req.product} со склада {req.fr} в магазин {req.to}")
         print(f"Курьер доставил {req.amount} {req.product} в магазин {req.to}")
 
         print(f"Текущий каталог склада {req.fr}:\n {store.get_items()}")
         print("\nАктуальный каталог магазина", shop.get_items())
-
