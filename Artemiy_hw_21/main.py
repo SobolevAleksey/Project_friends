@@ -66,10 +66,9 @@ if __name__ == '__main__':
 
         if user_input == "0":
             break
-        print(f"\nНапишите точное наименование товара и количество")
         try:
-            sh_goods_title = input("Наименование: ").lower()
-            sh_goods_quantity = int(input("Количество: "))
+            sh_goods_title = input("Напишите точное наименование товара: ").lower()
+            sh_goods_quantity = int(input("Напишите точное количество товара: "))
         except ValueError:
             print("Введите правильные значения: Наименование - буквами,  Количество - цифрой")
             continue
