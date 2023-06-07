@@ -37,8 +37,7 @@ def add_data():
     shop_2.add("перец", 0)
 
 
-if __name__ == '__main__':
-    add_data()
+def main():
     print(
         "\n\nДобро пожаловать в интернет-магазин 'Овощной Микс'! \n\nВыберите одно из наших отделений, чтобы сделать онлайн-покупку")
 
@@ -114,3 +113,8 @@ if __name__ == '__main__':
 
         print(f"Текущий каталог склада {req.fr}:\n {store.get_items()}")
         print("\nАктуальный каталог магазина", shop.get_items())
+
+
+if __name__ == '__main__':
+    add_data()
+    main()
