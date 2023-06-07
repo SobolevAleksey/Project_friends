@@ -1,4 +1,6 @@
-from classes import Store, Shop, Request
+from Artemiy_hw_21.shop_class import Shop
+from Artemiy_hw_21.store_class import Store
+from request_class import Request
 from utils import search_shop, search_store
 
 if __name__ == '__main__':

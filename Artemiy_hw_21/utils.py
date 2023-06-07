@@ -1,4 +1,4 @@
-from classes import Storage
+from request_class import Storage
 
 
 def search_store(storage_name):
