@@ -1,6 +1,5 @@
 from request_class import Storage
 
-
 def search_store(storage_name):
     """Функция для опеределения, что товар доставляется в магазин"""
     for store in Storage.stores_lst:
